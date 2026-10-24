@@ -94,11 +94,62 @@ run_step() {
   return $rc
 }
 
-LINE=$(printf '═%.0s' $(seq 1 37))
-printf '%s╔%s╗\n' "$C_B" "$LINE"
-printf '║   TikTok Cloud CLI by Rira Project   ║\n'
-printf '╚%s╝%s\n' "$LINE" "$C_0"
-echo
+print_header() {
+  local C_W="" C_M="" C_L="" C_Y="" C_BL=""
+  if [ -n "$C_B" ]; then C_W=$'\033[1;97m'; C_M=$'\033[1;95m'; C_L=$'\033[96m'; C_Y=$'\033[1;93m'; C_BL=$'\033[1;94m'; fi
+  local line
+  while IFS= read -r line; do printf '%s%s%s\n' "$C_B" "$line" "$C_0"; done <<'LOGO'
+ ########\##\ ##\         ##\               ##\       
+\__##  __|\__|## |        ## |              ## |      
+   ## |   ##\ ## |  ##\ ######\    ######\  ## |  ##\ 
+   ## |   ## |## | ##  |\_##  _|  ##  __##\ ## | ##  |
+   ## |   ## |######  /   ## |    ## /  ## |######  / 
+   ## |   ## |##  _##<    ## |##\ ## |  ## |##  _##<  
+   ## |   ## |## | \##\   \####  |\######  |## | \##\ 
+   \__|   \__|\__|  \__|   \____/  \______/ \__|  \__|
+ ######\  ##\                           ##\           
+##  __##\ ## |                          ## |          
+## /  \__|## | ######\  ##\   ##\  ####### |          
+## |      ## |##  __##\ ## |  ## |##  __## |          
+## |      ## |## /  ## |## |  ## |## /  ## |          
+## |  ##\ ## |## |  ## |## |  ## |## |  ## |          
+\######  |## |\######  |\######  |\####### |          
+ \______/ \__| \______/  \______/  \_______|          
+LOGO
+  echo
+  local t="TikTok Cloud CLI" s="TikTok Video Downloader For Termux"
+  local d="Rira Project" g="$REPO_URL"
+  local w=$(( ${#g} + 12 )) x
+  for x in "$t" "$s" "Developed : $d"; do [ "${#x}" -gt "$w" ] && w=${#x}; done
+  w=$(( w + 4 ))
+  local EL="${C_B}##${C_0}" ER="${C_B}## |${C_0}"
+  local hash us
+  hash="$(printf '%*s' $(( w + 4 )) '' | tr ' ' '#')"
+  printf '%s%s\\%s\n' "$C_B" "$hash" "$C_0"
+  centered() {
+    local txt="$1" col="$2" pad=$(( w - ${#1} ))
+    local left=$(( pad / 2 )) right=$(( pad - pad / 2 ))
+    printf '%s%*s%s%s%s%*s%s\n' "$EL" "$left" '' "$col" "$txt" "$C_0" "$right" '' "$ER"
+  }
+  kv() {
+    local label="$1" val="$2" vcol="$3"
+    local plain="$label : $val" pad
+    pad=$(( w - ${#plain} - 2 ))
+    printf '%s  %s%s%s : %s%s%s%*s%s\n' "$EL" "$C_L" "$label" "$C_0" "$vcol" "$val" "$C_0" "$pad" '' "$ER"
+  }
+  centered "$t" "$C_W"
+  centered "$s" "$C_M"
+  printf '%s%*s%s\n' "$EL" "$w" '' "$ER"
+  kv "Developed" "$d" "$C_Y"
+  kv "Github   " "$g" "$C_BL"
+  us="$(printf '%*s' $(( w + 2 )) '' | tr ' ' '_')"
+  hash="$(printf '%*s' $(( w + 3 )) '' | tr ' ' '#')"
+  printf '%s\\%s |%s\n' "$C_B" "$hash" "$C_0"
+  printf '%s \\%s/%s\n' "$C_B" "$us" "$C_0"
+  echo
+}
+
+print_header
 
 render 0 "Checking environment"
 if ! { [ -d "$PREFIX/bin" ] && command -v pkg >/dev/null 2>&1; }; then
