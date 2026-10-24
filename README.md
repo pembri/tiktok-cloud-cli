@@ -76,7 +76,7 @@ Interactive mode looks like this:
 ##                     TikTok Cloud CLI                     ## |
 ##            TikTok Video Downloader For Termux            ## |
 ##                                                          ## |
-##  Version   : v1.7                                        ## |
+##  Version   : v1.9                                        ## |
 ##  Developed : Rira Project                                ## |
 ##  Github    : https://github.com/pembri/tiktok-cloud-cli  ## |
 \############################################################# |
