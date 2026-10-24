@@ -43,7 +43,7 @@ If you see `command not found` after installing, run `exec $SHELL` and try again
 | Command | What it does |
 |---|---|
 | `tiktok-cloud` | Interactive mode, asks for the link |
-| `tiktok-cloud "URL"` | Show the video info, then choose Download or Exit |
+| `tiktok-cloud "URL"` | Show the video info, then choose the quality |
 | `tiktok-cloud "URL" "URL" "URL"` | Download several links at once |
 | `tiktok-cloud --version` | Show the version number |
 | `tiktok-cloud --help` | Show the help page |
@@ -54,19 +54,19 @@ If you see `command not found` after installing, run `exec $SHELL` and try again
 Interactive mode looks like this:
 
 ```
-╔══════════════════════════════════════╗
-║           TikTok Cloud CLI           ║
-║  TikTok Video Downloader For Termux  ║
-║                                      ║
-║                       Version : v1.0 ║
-║             Developed : Rira Project ║
-║     Github : pembri/tiktok-cloud-cli ║
-║                                      ║
-║                    Run  tiktok-cloud ║
-║        Update  tiktok-cloud --update ║
-║        Remove  tiktok-cloud --remove ║
-║            Help  tiktok-cloud --help ║
-╚══════════════════════════════════════╝
+╔═══════════════════════════════════════╗
+║           TikTok Cloud CLI            ║
+║  TikTok Video Downloader For Termux   ║
+║                                       ║
+║  Version   : v1.3                     ║
+║  Developed : Rira Project             ║
+║  Github    : pembri/tiktok-cloud-cli  ║
+║                                       ║
+║  Run     tiktok-cloud                 ║
+║  Update  tiktok-cloud --update        ║
+║  Remove  tiktok-cloud --remove        ║
+║  Help    tiktok-cloud --help          ║
+╚═══════════════════════════════════════╝
 
 Input URL :
 ```
@@ -74,7 +74,7 @@ Input URL :
 Steps:
 1. Paste one or more links (separated by spaces)
 2. Check the video info
-3. Choose `1) Download` (or `2) Exit` to cancel)
+3. Choose the video quality (or `0) Exit` to cancel)
 4. The video is saved to the download folder
 
 ### Downloading several links
