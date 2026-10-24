@@ -54,19 +54,32 @@ If you see `command not found` after installing, run `exec $SHELL` and try again
 Interactive mode looks like this:
 
 ```
-╔═══════════════════════════════════════╗
-║           TikTok Cloud CLI            ║
-║  TikTok Video Downloader For Termux   ║
-║                                       ║
-║  Version   : v1.3                     ║
-║  Developed : Rira Project             ║
-║  Github    : pembri/tiktok-cloud-cli  ║
-║                                       ║
-║  Run     tiktok-cloud                 ║
-║  Update  tiktok-cloud --update        ║
-║  Remove  tiktok-cloud --remove        ║
-║  Help    tiktok-cloud --help          ║
-╚═══════════════════════════════════════╝
+ ########\##\ ##\         ##\               ##\
+\__##  __|\__|## |        ## |              ## |
+   ## |   ##\ ## |  ##\ ######\    ######\  ## |  ##\
+   ## |   ## |## | ##  |\_##  _|  ##  __##\ ## | ##  |
+   ## |   ## |######  /   ## |    ## /  ## |######  /
+   ## |   ## |##  _##<    ## |##\ ## |  ## |##  _##<
+   ## |   ## |## | \##\   \####  |\######  |## | \##\
+   \__|   \__|\__|  \__|   \____/  \______/ \__|  \__|
+ ######\  ##\                           ##\
+##  __##\ ## |                          ## |
+## /  \__|## | ######\  ##\   ##\  ####### |
+## |      ## |##  __##\ ## |  ## |##  __## |
+## |      ## |## /  ## |## |  ## |## /  ## |
+## |  ##\ ## |## |  ## |## |  ## |## |  ## |
+\######  |## |\######  |\######  |\####### |
+ \______/ \__| \______/  \______/  \_______|
+
+
+##############################################################\
+##                     TikTok Cloud CLI                     ## |
+##            TikTok Video Downloader For Termux            ## |
+##                                                          ## |
+##  Version   : v1.7                                        ## |
+##  Developed : Rira Project                                ## |
+##  Github    : https://github.com/pembri/tiktok-cloud-cli  ## |
+\############################################################# |
 
 Input URL :
 ```
