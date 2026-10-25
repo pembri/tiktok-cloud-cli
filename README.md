@@ -9,7 +9,7 @@
 - Shows the video info (title, uploader, duration, quality, estimated size) before downloading
 - **Multi-download**: give several links and get them all in one run
 - Automatic retry when TikTok temporarily refuses a download
-- Built-in repair command (`--fix`) and one-command update (`--update`)
+- One-command update (`--update`) that refreshes the required components first
 - Colorized, easy-to-read terminal UI
 - Single-file installer and a clean uninstaller that never touches your downloads
 
@@ -47,8 +47,7 @@ If you see `command not found` after installing, run `exec $SHELL` and try again
 | `tiktok-cloud "URL" "URL" "URL"` | Download several links at once |
 | `tiktok-cloud --version` | Show the version number |
 | `tiktok-cloud --help` | Show the help page |
-| `tiktok-cloud --fix` | Fix download errors: updates yt-dlp first, then Deno |
-| `tiktok-cloud --update` | Update to the latest version |
+| `tiktok-cloud --update` | Refresh the required components, then update to the latest version |
 | `tiktok-cloud --remove` | Uninstall TikTok Cloud CLI |
 
 Interactive mode looks like this:
@@ -76,7 +75,7 @@ Interactive mode looks like this:
 ##                     TikTok Cloud CLI                     ## |
 ##            TikTok Video Downloader For Termux            ## |
 ##                                                          ## |
-##  Version   : v1.9                                        ## |
+##  Version   : v2.1                                        ## |
 ##  Developed : Rira Project                                ## |
 ##  Github    : https://github.com/pembri/tiktok-cloud-cli  ## |
 \############################################################# |
@@ -120,7 +119,7 @@ tiktok-cloud-cli/
 tiktok-cloud --update
 ```
 
-This clones a fresh, temporary copy of this repo, reinstalls `tiktok-cloud` from it, and removes the temporary copy afterward, so you always end up on the latest version without any leftover files. The installer also refreshes yt-dlp and Deno while it runs.
+Before anything else, the update refreshes every component the tool relies on, so downloads keep working when TikTok changes something. It then clones a fresh, temporary copy of this repo, reinstalls `tiktok-cloud` from it, and removes the temporary copy afterward, so you always end up on the latest version without any leftover files.
 
 If your version is too old to have `--update`, update once by hand:
 
@@ -148,7 +147,7 @@ Your downloaded files in `/sdcard/Download/tiktok-cloud` are **never** deleted. 
 - Put links in quotes, or use the `Input URL :` prompt. Links containing `&` or `?` can be misread by the terminal.
 - Only single videos are downloaded, not whole profiles or playlists.
 - Photo slideshows, private videos and login-required content cannot be downloaded.
-- If downloads fail with errors about a JS runtime, cookies or `HTTP 403`, run `tiktok-cloud --fix`.
+- If downloads fail with errors about a JS runtime, cookies or `HTTP 403`, run `tiktok-cloud --update`.
 - This tool uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://ffmpeg.org/) as its core engines.
 
 ## License
